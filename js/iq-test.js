@@ -1,12 +1,26 @@
-// время 
-const TOTAL_TIME = 85; // секунды
+// время
+const TOTAL_TIME = 85;
 let timeLeft = TOTAL_TIME;
 
-// подгружаем элименты
+// элементы
 const timerEl = document.getElementById("time");
 const form = document.getElementById("iqForm");
 const resultBlock = document.getElementById("result");
 const resultText = document.getElementById("resultText");
+
+const questions = document.querySelectorAll(".question");
+const nextBtn = document.getElementById("nextBtn");
+const finishBtn = document.getElementById("finishBtn");
+
+let currentQuestion = 0;
+nextBtn.disabled = true;
+
+// стартовое состояние
+questions.forEach(q => {
+  q.classList.remove("show");
+});
+
+questions[0].classList.add("show");
 
 // таймер
 const timer = setInterval(() => {
@@ -15,18 +29,51 @@ const timer = setInterval(() => {
 
   if (timeLeft <= 0) {
     clearInterval(timer);
-    finishTest(true); // авто-завершение
+    finishTest(true);
   }
 }, 1000);
 
-// форма
+// включаем кнопку "далее" только если выбран ответ
+questions.forEach(question => {
+  const radios = question.querySelectorAll("input[type='radio']");
+  radios.forEach(radio => {
+    radio.addEventListener("change", () => {
+      nextBtn.disabled = false;
+      nextBtn.style.opacity = "1";
+    });
+  });
+});
+
+// переход к следующему вопросу
+nextBtn.addEventListener("click", () => {
+  // скрываем текущий вопрос
+  questions[currentQuestion].classList.remove("show");
+
+  currentQuestion++;
+  nextBtn.disabled = true;
+
+  // показываем следующий
+  if (currentQuestion < questions.length) {
+    requestAnimationFrame(() => {
+      questions[currentQuestion].classList.add("show");
+    });
+  }
+
+  // последний вопрос
+  if (currentQuestion === questions.length - 1) {
+    nextBtn.classList.add("btn-hidden");
+    finishBtn.classList.remove("btn-hidden");
+  }
+});
+
+// сабмит
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   clearInterval(timer);
   finishTest(false);
 });
 
-//логика работы 
+// результат
 function finishTest(autoFinished) {
   const answers = new FormData(form);
   let score = 0;
@@ -38,10 +85,9 @@ function finishTest(autoFinished) {
   form.style.display = "none";
   resultBlock.classList.remove("hidden");
 
-  // Градация 
   if (autoFinished) {
     resultText.textContent =
-      "Время вышло. ты слишком долго думал";
+      "Время вышло. Ты слишком долго думал.";
     return;
   }
 
@@ -53,10 +99,10 @@ function finishTest(autoFinished) {
       "Ты стараешься выглядеть умным. Получается не всегда.";
   } else if (score <= 15) {
     resultText.textContent =
-      "средний уровень - посредственность";
+      "Средний уровень. Посредственность.";
   } else {
     resultText.textContent =
-      "Максимальный результат. Но мы то знаем правду.";
+      "Максимальный результат. Не ври себе — мы то знаем правду.";
   }
 }
 

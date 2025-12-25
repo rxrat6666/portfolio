@@ -69,6 +69,8 @@ body {
 /* форма */
 
 form {
+  position: relative;
+  min-height: 220px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -76,10 +78,16 @@ form {
 /* блок с вопросом */
 
 .question {
-  background: rgba(255,255,255,0.04);
-  padding: 22px;
-  border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+
+  pointer-events: none;
 }
 
 .question p {
@@ -152,6 +160,9 @@ button:disabled:hover {
   background: transparent;
   color: #777;
 }
+.controls {
+  margin-top: 260px;
+}
 
 /* результат */
 
@@ -167,9 +178,29 @@ button:disabled:hover {
 
 /* скрытые элементы */
 
+.question.hidden {
+  opacity: 0;
+  transform: translateX(-30px);
+  pointer-events: none;
+}
+
 .hidden {
   display: none;
 }
+
+.btn-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#nextBtn {
+  transition: opacity 0.25s ease;
+}
+#nextBtn:disabled {
+  opacity: 0.2;
+}
+
+
 
 /* анимации */
 
@@ -177,5 +208,11 @@ button:disabled:hover {
   0%   { opacity: 1; }
   50%  { opacity: 0.4; }
   100% { opacity: 1; }
+}
+
+.question.show {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
 }
 
