@@ -3,6 +3,21 @@
 * {
   box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: arial, helvetica, sans-serif;
+  background: radial-gradient(circle at top, #1a1a1a, #0b0b0b);
+  color: #e0e0e0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* кнопка назад */
+
 .back {
   position: fixed;
   top: 20px;
@@ -17,18 +32,6 @@
 
 .back:hover {
   opacity: 1;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: arial, helvetica, sans-serif;
-  background: radial-gradient(circle at top, #1a1a1a, #0b0b0b);
-  color: #e0e0e0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* основной контейнер */
@@ -75,7 +78,8 @@ form {
   flex-direction: column;
   gap: 30px;
 }
-/* блок с вопросом */
+
+/* вопрос */
 
 .question {
   position: absolute;
@@ -87,6 +91,18 @@ form {
   transform: translateX(30px);
   transition: opacity 0.35s ease, transform 0.35s ease;
 
+  pointer-events: none;
+}
+
+.question.show {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.question.hidden {
+  opacity: 0;
+  transform: translateX(-30px);
   pointer-events: none;
 }
 
@@ -120,11 +136,12 @@ input[type="radio"] {
   margin-right: 8px;
   transform: scale(1.05);
 }
+
 .question input[type="radio"]:checked {
   accent-color: #ff5f5f;
 }
 
-/* кнопка */
+/* кнопки */
 
 button {
   margin-top: 20px;
@@ -149,6 +166,7 @@ button:hover {
 button:active {
   transform: scale(0.97);
 }
+
 button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
@@ -160,8 +178,17 @@ button:disabled:hover {
   background: transparent;
   color: #777;
 }
+
 .controls {
   margin-top: 260px;
+}
+
+#nextBtn {
+  transition: opacity 0.25s ease;
+}
+
+#nextBtn:disabled {
+  opacity: 0.2;
 }
 
 /* результат */
@@ -176,13 +203,7 @@ button:disabled:hover {
   line-height: 1.5;
 }
 
-/* скрытые элементы */
-
-.question.hidden {
-  opacity: 0;
-  transform: translateX(-30px);
-  pointer-events: none;
-}
+/* скрытые */
 
 .hidden {
   display: none;
@@ -193,26 +214,11 @@ button:disabled:hover {
   pointer-events: none;
 }
 
-#nextBtn {
-  transition: opacity 0.25s ease;
-}
-#nextBtn:disabled {
-  opacity: 0.2;
-}
-
-
-
 /* анимации */
 
 @keyframes pulse {
   0%   { opacity: 1; }
   50%  { opacity: 0.4; }
   100% { opacity: 1; }
-}
-
-.question.show {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
 }
 

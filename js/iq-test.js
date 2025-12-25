@@ -1,8 +1,9 @@
-// время
+// время теста
 const TOTAL_TIME = 85;
 let timeLeft = TOTAL_TIME;
 
-// элементы
+
+// элементы страницы
 const timerEl = document.getElementById("time");
 const form = document.getElementById("iqForm");
 const resultBlock = document.getElementById("result");
@@ -15,12 +16,14 @@ const finishBtn = document.getElementById("finishBtn");
 let currentQuestion = 0;
 nextBtn.disabled = true;
 
+
 // стартовое состояние
 questions.forEach(q => {
   q.classList.remove("show");
 });
 
 questions[0].classList.add("show");
+
 
 // таймер
 const timer = setInterval(() => {
@@ -33,9 +36,11 @@ const timer = setInterval(() => {
   }
 }, 1000);
 
-// включаем кнопку "далее" только если выбран ответ
+
+// активируем кнопку "Далее" после выбора ответа
 questions.forEach(question => {
   const radios = question.querySelectorAll("input[type='radio']");
+
   radios.forEach(radio => {
     radio.addEventListener("change", () => {
       nextBtn.disabled = false;
@@ -43,6 +48,7 @@ questions.forEach(question => {
     });
   });
 });
+
 
 // переход к следующему вопросу
 nextBtn.addEventListener("click", () => {
@@ -52,28 +58,30 @@ nextBtn.addEventListener("click", () => {
   currentQuestion++;
   nextBtn.disabled = true;
 
-  // показываем следующий
+  // показываем следующий вопрос
   if (currentQuestion < questions.length) {
     requestAnimationFrame(() => {
       questions[currentQuestion].classList.add("show");
     });
   }
 
-  // последний вопрос
+  // если дошли до последнего вопроса
   if (currentQuestion === questions.length - 1) {
     nextBtn.classList.add("btn-hidden");
     finishBtn.classList.remove("btn-hidden");
   }
 });
 
-// сабмит
+
+// отправка формы
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   clearInterval(timer);
   finishTest(false);
 });
 
-// результат
+
+// подсчет результата
 function finishTest(autoFinished) {
   const answers = new FormData(form);
   let score = 0;
