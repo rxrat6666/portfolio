@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Тест на гениальность</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/iq-test.css">
+</head>
+<body>
+
+<a class="back" href="works.html">← back</a>
+
+<main class="test">
+
+  <header class="test-header">
+    <h1>Тест на гениальность</h1>
+    <div class="timer">
+      Осталось времени: <span id="time">85</span> сек
+    </div>
+  </header>
+
+  <form id="iqForm">
+
+<section class="question">
+  <h2>1. Тебе дали сложную задачу. Первая мысль:</h2>
+  <label>
+    <input type="radio" name="q1" value="2" required>
+    Надо разобраться
+  </label>
+  <label>
+    <input type="radio" name="q1" value="1">
+    Опять я всё делаю
+  </label>
+  <label>
+    <input type="radio" name="q1" value="0">
+    Почему это вообще моя проблема
+  </label>
+</section>
+
+<section class="question">
+  <h2>2. Когда код не работает, ты:</h2>
+  <label>
+    <input type="radio" name="q2" value="2" required>
+    Ищешь причину
+  </label>
+  <label>
+    <input type="radio" name="q2" value="1">
+    Меняешь всё подряд
+  </label>
+  <label>
+    <input type="radio" name="q2" value="0">
+    Перезапускаешь и молишься
+  </label>
+</section>
+
+<section class="question">
+  <h2>3. Ты откладываешь дело, потому что:</h2>
+  <label>
+    <input type="radio" name="q3" value="2" required>
+    Планируешь
+  </label>
+  <label>
+    <input type="radio" name="q3" value="1">
+    Не знаешь, с чего начать
+  </label>
+  <label>
+    <input type="radio" name="q3" value="0">
+    Не хочется
+  </label>
+</section>
+
+<section class="question">
+  <h2>4. Видишь, что кто-то тупит. Ты:</h2>
+  <label>
+    <input type="radio" name="q4" value="2" required>
+    Помогаешь
+  </label>
+  <label>
+    <input type="radio" name="q4" value="1">
+    Молчишь
+  </label>
+  <label>
+    <input type="radio" name="q4" value="0">
+    Запоминаешь
+  </label>
+</section>
+
+<section class="question">
+  <h2>5. Если у тебя что-то получается:</h2>
+  <label>
+    <input type="radio" name="q5" value="0" required>
+    Повезло
+  </label>
+  <label>
+    <input type="radio" name="q5" value="2">
+    Я заслужил
+  </label>
+  <label>
+    <input type="radio" name="q5" value="1">
+    Ну наконец-то
+  </label>
+</section>
+
+<section class="question">
+  <h2>6. Новый инструмент:</h2>
+  <label>
+    <input type="radio" name="q6" value="2" required>
+    Изучу
+  </label>
+  <label>
+    <input type="radio" name="q6" value="1">
+    Посмотрю туториал
+  </label>
+  <label>
+    <input type="radio" name="q6" value="0">
+    И так сойдёт
+  </label>
+</section>
+
+<section class="question">
+  <h2>7. Ты чаще чувствуешь:</h2>
+  <label>
+    <input type="radio" name="q7" value="2" required>
+    Интерес
+  </label>
+  <label>
+    <input type="radio" name="q7" value="1">
+    Усталость
+  </label>
+  <label>
+    <input type="radio" name="q7" value="0">
+    Раздражение
+  </label>
+</section>
+
+<section class="question">
+  <h2>8. Тебя критикуют:</h2>
+  <label>
+    <input type="radio" name="q8" value="2" required>
+    Анализируешь
+  </label>
+  <label>
+    <input type="radio" name="q8" value="1">
+    Оправдываешься
+  </label>
+  <label>
+    <input type="radio" name="q8" value="0">
+    Злишься
+  </label>
+</section>
+
+<section class="question">
+  <h2>9. Если можно сделать проще:</h2>
+  <label>
+    <input type="radio" name="q9" value="2" required>
+    Упростишь
+  </label>
+  <label>
+    <input type="radio" name="q9" value="1">
+    Оставишь как есть
+  </label>
+  <label>
+    <input type="radio" name="q9" value="0">
+    Усложнишь ради красоты
+  </label>
+</section>
+
+<section class="question">
+  <h2>10. Когда никто не видит, ты:</h2>
+  <label>
+    <input type="radio" name="q10" value="2" required>
+    Работаешь
+  </label>
+  <label>
+    <input type="radio" name="q10" value="1">
+    Притворяешься занятым
+  </label>
+  <label>
+    <input type="radio" name="q10" value="0">
+    Листаешь
+  </label>
+</section>
+
+    <button type="submit" id="finishBtn">
+      Узнать правду
+    </button>
+
+  </form>
+
+  
+  <section id="result" class="result hidden">
+    <p id="resultText"></p>
+  </section>
+
+</main>
+
+<script src="js/iq-test.js"></script>
+</body>
+</html>
+

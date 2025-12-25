@@ -1,0 +1,181 @@
+/* базовые стили */
+
+* {
+  box-sizing: border-box;
+}
+.back {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.back:hover {
+  opacity: 1;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: arial, helvetica, sans-serif;
+  background: radial-gradient(circle at top, #1a1a1a, #0b0b0b);
+  color: #e0e0e0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* основной контейнер */
+
+.iq-test {
+  width: 100%;
+  max-width: 720px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* заголовок */
+
+.iq-test h1 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+/* таймер */
+
+.timer {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #aaa;
+}
+
+.timer span {
+  color: #ff5f5f;
+  font-weight: bold;
+  animation: pulse 1s infinite;
+}
+
+/* форма */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+/* блок с вопросом */
+
+.question {
+  background: rgba(255,255,255,0.04);
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.question p {
+  margin: 0 0 14px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* варианты ответов */
+
+.question label {
+  display: block;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.02);
+  transition: background 0.2s ease;
+}
+
+.question label:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.question label:has(input[type="radio"]:checked) {
+  background: rgba(255,95,95,0.15);
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+  transform: scale(1.05);
+}
+.question input[type="radio"]:checked {
+  accent-color: #ff5f5f;
+}
+
+/* кнопка */
+
+button {
+  margin-top: 20px;
+  padding: 14px;
+  font-size: 16px;
+  cursor: pointer;
+
+  background: transparent;
+  border: 1px solid #888;
+  color: #ccc;
+  border-radius: 10px;
+
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #ff5f5f;
+  border-color: #ff5f5f;
+  color: #000;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #555;
+  color: #777;
+}
+
+button:disabled:hover {
+  background: transparent;
+  color: #777;
+}
+
+/* результат */
+
+.result {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.result p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* скрытые элементы */
+
+.hidden {
+  display: none;
+}
+
+/* анимации */
+
+@keyframes pulse {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
