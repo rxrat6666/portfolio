@@ -58,17 +58,17 @@ nextBtn.addEventListener("click", () => {
   currentQuestion++;
   nextBtn.disabled = true;
 
-  // показываем следующий вопрос
+  // если следующий вопрос — последний
+  if (currentQuestion === questions.length - 1) {
+    nextBtn.classList.add("btn-hidden");
+    finishBtn.classList.remove("btn-hidden");
+  }
+
+  // показываем следующий
   if (currentQuestion < questions.length) {
     requestAnimationFrame(() => {
       questions[currentQuestion].classList.add("show");
     });
-  }
-
-  // если дошли до последнего вопроса
-  if (currentQuestion === questions.length - 1) {
-    nextBtn.classList.add("btn-hidden");
-    finishBtn.classList.remove("btn-hidden");
   }
 });
 
