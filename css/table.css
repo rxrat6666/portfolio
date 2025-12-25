@@ -1,0 +1,31 @@
+.work {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #eee;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 20px;
+  min-width: 400px;
+}
+
+th, td {
+  padding: 10px 14px;
+  text-align: left;
+}
+
+th {
+  background: #2b2f33;
+}
+
+td {
+  background: #1c1f22;
+}
+
+tfoot td {
+  text-align: center;
+  font-style: italic;
+}
+

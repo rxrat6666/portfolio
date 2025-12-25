@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS псевдоклассы и псевдоэлементы</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pseudo.css">
+</head>
+<body>
+
+  <header class="header">
+    <a class="back" href="works.html">← back</a>
+
+    <h1>CSS псевдоклассы и псевдоэлементы</h1>
+
+    <nav class="nav">
+      <ul>
+        <li><a href="#links">Ссылки</a></li>
+        <li><a href="#form">Форма</a></li>
+        <li><a href="#projects">Проекты</a></li>
+        <li><a href="#text">Текст</a></li>
+      </ul>
+    </nav>
+  </header>
+<main>
+
+  <!-- ===== ССЫЛКИ ===== -->
+  <section id="links">
+    <h2>Ссылки и состояния</h2>
+
+    <p>
+      Этот раздел демонстрирует псевдоклассы для ссылок.
+    </p>
+
+    <a href="#">Обычная ссылка</a><br>
+    <a href="#form">Якорная ссылка</a>
+  </section>
+
+  <!-- ===== ФОРМА ===== -->
+  <section id="form">
+    <h2>Форма</h2>
+
+    <form>
+      <label>
+        Email:
+        <input type="email" placeholder="example@mail.com" required>
+      </label>
+
+      <label>
+        Сообщение:
+        <textarea placeholder="Введите текст"></textarea>
+      </label>
+
+      <label>
+        <input type="checkbox">
+        Я согласен с условиями
+      </label>
+
+      <button type="submit">Отправить</button>
+      <button type="button" disabled>Недоступно</button>
+    </form>
+  </section>
+
+  <!-- ===== СПИСОК ===== -->
+  <section id="projects">
+    <h2>Список проектов</h2>
+
+    <ul class="project-list">
+      <li>Первый проект</li>
+      <li>Второй проект</li>
+      <li>Третий проект</li>
+      <li>Четвёртый проект</li>
+    </ul>
+  </section>
+
+  <!-- ===== ТЕКСТ ===== -->
+  <section id="text">
+    <h2>Работа с текстом</h2>
+
+    <p>
+      Этот абзац используется для демонстрации псевдоэлементов первой строки
+      и первой буквы. Текст специально сделан длиннее, чтобы было видно
+      разницу.
+    </p>
+
+    <p></p>
+  </section>
+
+  <a href="#top" class="up">Наверх</a>
+
+</main>
+
+<footer class="footer">
+  <p>© 2025 rxrat-Semyonov</p>
+</footer>
+
+</body>
+</html>
+

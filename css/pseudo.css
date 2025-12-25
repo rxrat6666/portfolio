@@ -1,0 +1,242 @@
+/* ===== RESET & BASE ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #1e2225;
+  color: #eaeaea;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* ===== HEADER & NAV ===== */
+header {
+  background: #161818;
+  padding: 20px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav a:link {
+  color: #aaa;
+}
+
+.nav a:visited {
+  color: #777;
+}
+
+.nav a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.nav a:active {
+  color: #1e90ff;
+}
+
+.nav a:focus {
+  outline: 2px solid #1e90ff;
+  outline-offset: 4px;
+}
+
+/* ===== MAIN ===== */
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* ===== SECTIONS & :target ===== */
+section {
+  padding: 40px;
+  margin-bottom: 40px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  transition: background 0.3s;
+}
+
+section:target {
+  background: rgba(30,144,255,0.15);
+}
+
+/* ===== HEADINGS PSEUDO ELEMENTS ===== */
+h2 {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+h2::before {
+  content: "◆ ";
+  color: #1e90ff;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #1e90ff;
+  margin-top: 6px;
+}
+
+/* ===== PARAGRAPHS ===== */
+p::first-letter {
+  font-size: 2em;
+  font-weight: bold;
+  color: #1e90ff;
+}
+
+p::first-line {
+  color: #ccc;
+}
+
+/* ===== LINKS SELECTION ===== */
+a::selection {
+  background: #1e90ff;
+  color: #fff;
+}
+
+/* ===== LIST & STRUCTURAL PSEUDOCLASSES ===== */
+ul.projects {
+  padding-left: 20px;
+}
+
+ul.projects li {
+  padding: 10px;
+}
+
+ul.projects li:first-child {
+  background: rgba(255,255,255,0.05);
+}
+
+ul.projects li:last-child {
+  background: rgba(255,255,255,0.08);
+}
+
+ul.projects li:nth-child(odd) {
+  background: rgba(255,255,255,0.03);
+}
+
+ul.projects li:nth-child(even) {
+  background: rgba(255,255,255,0.06);
+}
+
+ul.projects li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+ul.projects li::marker {
+  color: #1e90ff;
+}
+
+/* ===== FORM ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  background: #0f1112;
+  border: 1px solid #555;
+  color: #fff;
+  border-radius: 6px;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #1e90ff;
+  outline: none;
+}
+
+input:required {
+  border-left: 4px solid orange;
+}
+
+input:valid {
+  border-left: 4px solid #4caf50;
+}
+
+input:invalid {
+  border-left: 4px solid #f44336;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #777;
+}
+
+/* ===== CHECKBOX ===== */
+label {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + span {
+  color: #1e90ff;
+}
+
+/* ===== BUTTON ===== */
+button {
+  padding: 12px;
+  background: transparent;
+  color: #ccc;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #1e90ff;
+  color: #fff;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:focus {
+  outline: 2px solid #1e90ff;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== UP BUTTON ===== */
+a.up {
+  display: inline-block;
+  margin-top: 30px;
+  color: #aaa;
+}
+
+a.up::before {
+  content: "↑ ";
+  color: #1e90ff;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #161818;
+  color: #777;
+}
+
